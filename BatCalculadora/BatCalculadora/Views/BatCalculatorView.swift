@@ -9,8 +9,6 @@ import SwiftUI
 
 struct BatCalculatorView: View {
     
-   
-    
     var buttonTypes: [[ButtonType]]{
         [[.allClear, .negative, .percent, .operation(.division)],
          [.digit(.seven), .digit(.eight), .digit(.nine), .operation(.multiplication)],
@@ -24,7 +22,14 @@ struct BatCalculatorView: View {
     var body: some View {
         VStack{
             Spacer()
-            displayText
+            ZStack{
+                Image("batlogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400)
+                displayText
+            }
+            
             buttonPad
         }
         .padding(Constants.padding)
@@ -38,11 +43,12 @@ struct BatCalculatorView: View {
 
 extension BatCalculatorView{
     private var displayText: some View{
+       
         Text(viewModel.displayText)
             .padding()
-            .foregroundColor(Color("numberColor"))
+            .foregroundColor(Color("operationColor"))
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .font(.system(size: 88, weight: .light))
+            .font(.system(size: 60, weight: .light))
             .lineLimit(1)//limite de linha
             .minimumScaleFactor(0.2)//ao adicionar mais numeros a fonte encolhe
     }

@@ -19,8 +19,7 @@ extension BatCalculatorView{
         
         var buttonTypes: [[ButtonType]]{
             let clearType: ButtonType = calculator.showAllClear ? .allClear : .clear
-            return
-            [[clearType, .negative, .percent, .operation(.division)],
+            return[[clearType, .negative, .percent, .operation(.division)],
              [.digit(.seven), .digit(.eight), .digit(.nine), .operation(.multiplication)],
              [.digit(.four), .digit(.five), .digit(.six), .operation(.subtraction)],
              [.digit(.one), .digit(.two), .digit(.three), .operation(.addition)],
